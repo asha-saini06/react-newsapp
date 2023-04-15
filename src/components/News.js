@@ -36,7 +36,7 @@ export class News extends Component {
 
   async updateNews() {
     this.props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8e67378196884d1eb271cc701a2e4ca4&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
 
     let data = await fetch(url); //async function can wait inside its body until some promises are resolved.
@@ -67,7 +67,7 @@ export class News extends Component {
 
   fetchMoreData = async () => {
     this.setState({ page: this.state.page + 1 });
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8e67378196884d1eb271cc701a2e4ca4&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
     let data = await fetch(url); //async function can wait inside its body until some promises are resolved.
     let parsedData = await data.json();
